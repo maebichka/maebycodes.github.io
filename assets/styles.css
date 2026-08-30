@@ -1,6 +1,8 @@
 body {
     text-align: center;
     background-color: #ffe5f4;
+    max-width: 70%;
+    margin: 0 auto;
 }
 
 div.left {
@@ -19,11 +21,28 @@ a:active {
     text-decoration: none;
 }
 
-ul.plain {
+ul.plain-list {
     list-style: none;
     padding-left: 0;
 }
 
-/* ul ul {
-    padding-left: 1.5em;
-} */
+ul.blog-list {
+    display: grid;
+    list-style: none;
+    padding-left: 0;
+    margin: 1em auto;
+    width: fit-content;
+}
+
+.blog-list li {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    text-align: left;
+    column-gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+    body {
+        max-width: 90%;
+    }
+}
