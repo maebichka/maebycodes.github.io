@@ -60,6 +60,13 @@ ul.blog-list {
     gap: 1rem;
 }
 
+.art-grid img,
+.insta-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 img {
     max-width: 100%;
     height: auto;
