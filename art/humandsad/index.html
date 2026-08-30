@@ -6,6 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Humandsad | Maebysite v2.0</title>
     <link rel="stylesheet" href="../../assets/styles.css">
+    <style media="screen">
+    .gallery-img {
+        cursor: pointer;
+    }
+
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        z-index: 9999;
+    }
+
+    .lightbox.open {
+        display: flex;
+    }
+
+    .lightbox img {
+        height: 85vh;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .lightbox-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #lightbox-caption {
+        color: white;
+        margin-top: 12px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .lightbox button {
+        font-size: 40px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .lightbox button:hover {
+        color: #999999;
+    }
+
+    .lightbox button:active {
+        color: #333333;
+    }
+    </style>
 </head>
 <body>
     <nav>
@@ -18,17 +73,324 @@
     <h2>Humandsad</h2>
     <h4>Spring 2017</h4>
     <p>
-        Every week for 3 months, I made 5 images based on tweets from a now-defunct account called @nytoutofcontext. I invented an artist, Quinby Abbott, as the creator of these works, and made a website for Quinby <a href="artist-index.html">here</a>.
+        Every week for 3 months, I made 5 images based on tweets from a now-defunct account called @nytoutofcontext. I invented an artist, Quinby Abbott, as the creator of these works, and made a website for Quinby <a href="artist-index.html" target="_blank">here</a>.
     </p>
     <p>
         Here are the works in chronological order:
     </p>
 
     <div class="insta-grid">
-        <img src="images/01 - Human-shaped and sad.png">
-        <img src="images/02.jpg">
-
+        <img
+            src="images/01 - Human-shaped and sad.png"
+            alt="Human-shaped and sad"
+            class="gallery-img"
+        >
+        <img
+            src="images/02 - Bringing up a completely undamaged child was in bad taste.jpg"
+            alt="Bringing up a completely undamaged child was in bad taste"
+            class="gallery-img"
+        >
+        <img
+            src="images/03 - This is so beyond stupid.jpg"
+            alt="This is so beyond stupid"
+            class="gallery-img"
+        >
+        <img
+            src="images/04 - Never, ever, ever try.jpg"
+            alt="Never, ever, ever try"
+            class="gallery-img"
+        >
+        <img
+            src="images/05 - Not helpful Buying things.png"
+            alt="Not helpful: Buying things"
+            class="gallery-img"
+        >
+        <img
+            src="images/06 - Oh right, her.png"
+            alt="Oh right, her"
+            class="gallery-img"
+        >
+        <img
+            src="images/07 - There's the mammal way. And there's the bird way.png"
+            alt="There's the mammal way. And there's the bird way"
+            class="gallery-img"
+        >
+        <img
+            src="images/08 - I NEED TO BE LIKED.png"
+            alt="I NEED TO BE LIKED"
+            class="gallery-img"
+        >
+        <img
+            src="images/09 - please don't kill me.png"
+            alt="please don't kill me"
+            class="gallery-img"
+        >
+        <img
+            src="images/10 - What's so funny about suffering.png"
+            alt="What's so funny about suffering"
+            class="gallery-img"
+        >
+        <img
+            src="images/11 - Wow, something quite profound.png"
+            alt="Wow, something quite profound"
+            class="gallery-img"
+        >
+        <img
+            src="images/12 - the first thing out of everyone's mouth was &quot;I hate that guy.&quot;.png"
+            alt="the first thing out of everyone's mouth was &quot;I hate that guy.&quot;"
+            class="gallery-img"
+        >
+        <img
+            src="images/13 - The measure of a work of art is how much art it has.png"
+            alt="The measure of a work of art is how much art it has"
+            class="gallery-img"
+        >
+        <img
+            src="images/14 - pale, pale, pale.png"
+            alt="pale, pale, pale"
+            class="gallery-img"
+        >
+        <img
+            src="images/15 - be brave and say what you want.png"
+            alt="be brave and say what you want"
+            class="gallery-img"
+        >
+        <img
+            src="images/16 - who wants to hear some jokes.png"
+            alt="who wants to hear some jokes"
+            class="gallery-img"
+        >
+        <img
+            src="images/17 - mom is always like, &quot;You know, it's your uncle's birthday on Sunday, and you're in town&quot;.png"
+            alt="mom is always like, &quot;You know, it's your uncle's birthday on Sunday, and you're in town&quot;"
+            class="gallery-img"
+        >
+        <img
+            src="images/18 - convenient habit of blacking out.png"
+            alt="convenient habit of blacking out"
+            class="gallery-img"
+        >
+        <img
+            src="images/19 - bad with women and an easy vomiter.png"
+            alt="bad with women and an easy vomiter"
+            class="gallery-img"
+        >
+        <img
+            src="images/20 - scary stuff, like the news, is not advised.png"
+            alt="scary stuff, like the news, is not advised"
+            class="gallery-img"
+        >
+        <img
+            src="images/21 - People thought I was insane, and I was.png"
+            alt="People thought I was insane, and I was"
+            class="gallery-img"
+        >
+        <img
+            src="images/22 - frolic or puke.png"
+            alt="frolic or puke"
+            class="gallery-img"
+        >
+        <img
+            src="images/23 - Foreskins come and foreskins go But Mozart lasts forever.png"
+            alt="Foreskins come and foreskins go! But Mozart lasts forever"
+            class="gallery-img"
+        >
+        <img
+            src="images/24 - When it's good — well, it's still often pretty bad.png"
+            alt="When it's good — well, it's still often pretty bad"
+            class="gallery-img"
+        >
+        <img
+            src="images/25 - Is that all there is.png"
+            alt="Is that all there is"
+            class="gallery-img"
+        >
+        <img
+            src="images/26 - I for some reason relish people being angry with me.png"
+            alt="I for some reason relish people being angry with me"
+            class="gallery-img"
+        >
+        <img
+            src="images/27 - I do drink alcohol, but at least I don't drink the blood of the poor.png"
+            alt="I do drink alcohol, but at least I don't drink the blood of the poor"
+            class="gallery-img"
+        >
+        <img
+            src="images/28 - my boss hates me, and she's stupid. Anyway,.png"
+            alt="my boss hates me, and she's stupid. Anyway,"
+            class="gallery-img"
+        >
+        <img
+            src="images/29 - Hello, world, I'm the girl with the hamburger.png"
+            alt="Hello, world, I'm the girl with the hamburger"
+            class="gallery-img"
+        >
+        <img
+            src="images/30 - On the other hand, nobody was stabbed to death.png"
+            alt="On the other hand, nobody was stabbed to death"
+            class="gallery-img"
+        >
+        <img
+            src="images/31 - Yes, share the ice cream.png"
+            alt="Yes, share the ice cream"
+            class="gallery-img"
+        >
+        <img
+            src="images/32 - help us return to those glory days when Americans weren't so frightened.png"
+            alt="help us return to those glory days when Americans weren't so frightened"
+            class="gallery-img"
+        >
+        <img
+            src="images/33 - get up every day without panicking.png"
+            alt="get up every day without panicking"
+            class="gallery-img"
+        >
+        <img
+            src="images/34 - If I get psychologically healthy I'll lose my edge.jpg"
+            alt="IF I GET PSYCHOLOGICALLY HEALTHY I'LL LOSE MY EDGE"
+            class="gallery-img"
+        >
+        <img
+            src="images/35 - What's a thing that you like I'll attach something you don't like to it.jpg"
+            alt="What's a thing that you like? I'll attach something you don't like to it"
+            class="gallery-img"
+        >
+        <img
+            src="images/36 - talking, underachieving.png"
+            alt="talking, underachieving"
+            class="gallery-img"
+        >
+        <img
+            src="images/37 - We have no strategy.png"
+            alt="We have no strategy"
+            class="gallery-img"
+        >
+        <img
+            src="images/38 - lumpy and imperfect.png"
+            alt="lumpy and imperfect"
+            class="gallery-img"
+        >
+        <img
+            src="images/39 - yes, we all die, but we all die.jpg"
+            alt="yes, we all die, but we all die"
+            class="gallery-img"
+        >
+        <img
+            src="images/40 - You think life has one circle, but no, there are circles which are added to extra circles.jpg"
+            alt="You think life has one circle, but no, there are circles which are added to extra circles"
+            class="gallery-img"
+        >
+        <img
+            src="images/41 - the world is an endlessly benevolent place.png"
+            alt="the world is an endlessly benevolent place"
+            class="gallery-img"
+        >
+        <img
+            src="images/42 - mirrors reflecting a thousand jazz hands.png"
+            alt="mirrors reflecting a thousand jazz hands"
+            class="gallery-img"
+        >
+        <img
+            src="images/43 - Why, you're not fat at all.jpg"
+            alt="Why, you're not fat at all"
+            class="gallery-img"
+        >
+        <img
+            src="images/44 - You've got lovely beds. Good beds.png"
+            alt="You've got lovely beds. Good beds"
+            class="gallery-img"
+        >
+        <img
+            src="images/45 - it is a crime to kill an innocent human, but not to kill an innocent tapeworm.png"
+            alt="it is a crime to kill an innocent human, but not to kill an innocent tapeworm"
+            class="gallery-img"
+        >
+        <img
+            src="images/46 - all you can do is act normal and pretend it didn't happen.jpg"
+            alt="all you can do is act normal and pretend it didn't happen"
+            class="gallery-img"
+        >
+        <img
+            src="images/47 - Oh my God, her butt.jpg"
+            alt="Oh my God, her butt"
+            class="gallery-img"
+        >
+        <img
+            src="images/48 - How can you be so many women to so many strange people, oh you strange girl.jpg"
+            alt="How can you be so many women to so many strange people, oh you strange girl"
+            class="gallery-img"
+        >
+        <img
+            src="images/49 - it's really rare that reading is unaccompanied by guilt.jpg"
+            alt="it's really rare that reading is unaccompanied by guilt"
+            class="gallery-img"
+        >
+        <img
+            src="images/50 - No one can help you.jpg"
+            alt="No one can help you"
+            class="gallery-img"
+        >
+        <img
+            src="images/51 - I don't feel like I know very much.jpg"
+            alt="I don't feel like I know very much"
+            class="gallery-img"
+        >
+        <img
+            src="images/52 - There you go, guy.png"
+            alt="There you go, guy"
+            class="gallery-img"
+        >
+        <img
+            src="images/53 - Send a salami to your boy.jpg"
+            alt="Send a salami to your boy"
+            class="gallery-img"
+        >
+        <img
+            src="images/54 - Why is the moon everywhere.jpg"
+            alt="Why is the moon everywhere"
+            class="gallery-img"
+        >
+        <img
+            src="images/55 - Just how much rudeness is there.png"
+            alt="Just how much rudeness is there"
+            class="gallery-img"
+        >
+        <img
+            src="images/56 - facts; dog.png"
+            alt="facts; dog"
+            class="gallery-img"
+        >
+        <img
+            src="images/57 - saying goodbye to the world.png"
+            alt="saying goodbye to the world"
+            class="gallery-img"
+        >
+        <img
+            src="images/58 - Why do you have to be so mean.png"
+            alt="Why do you have to be so mean"
+            class="gallery-img"
+        >
+        <img
+            src="images/59 - time feels at once inconceivable and heartbreakingly normal.png"
+            alt="time feels at once inconceivable and heartbreakingly normal"
+            class="gallery-img"
+        >
+        <img
+            src="images/60 - Enough with the pigs.png"
+            alt="Enough with the pigs"
+            class="gallery-img"
+        >
     </div>
+
+    <div id="lightbox" class="lightbox">
+        <button id="prev">◀</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption"></div>
+        </div>
+        <button id="next">▶</button>
+    </div>
+
 
     <hr>
 
@@ -37,5 +399,47 @@
         <br>
         Last updated: 2026-08-30
     </p>
+    <script type="text/javascript">
+        const images = [...document.querySelectorAll('.gallery-img')];
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImg = document.querySelector('#lightbox-img');
+        const lightboxCaption = document.querySelector('#lightbox-caption');
+
+        let current = 0;
+
+        function showImage(index) {
+            current = (index + images.length) % images.length;
+            lightboxImg.src = images[current].src;
+            lightboxCaption.textContent = images[current].alt;
+            lightbox.classList.add('open');
+        }
+
+        images.forEach((img, i) => {
+            img.addEventListener('click', () => showImage(i));
+        });
+
+        document.querySelector('#prev').addEventListener('click', () => {
+            showImage(current - 1);
+        });
+
+        document.querySelector('#next').addEventListener('click', () => {
+            showImage(current + 1);
+        });
+
+        document.addEventListener('keydown', e => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft') showImage(current - 1);
+            if (e.key === 'ArrowRight') showImage(current + 1);
+            if (e.key === 'Escape') lightbox.classList.remove('open');
+        });
+
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('open');
+            }
+        });
+    </script>
+
 </body>
+
 </html>
