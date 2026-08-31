@@ -7,59 +7,98 @@
     <title>Humandsad | Maebysite v2.0</title>
     <link rel="stylesheet" href="../../assets/styles.css">
     <style media="screen">
-    .gallery-img {
-        cursor: pointer;
-    }
+        .gallery-img {
+            cursor: pointer;
+        }
 
-    .lightbox {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        z-index: 9999;
-    }
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-    .lightbox.open {
-        display: flex;
-    }
+        .lightbox.open {
+            display: flex;
+        }
 
-    .lightbox img {
-        height: 85vh;
-        width: auto;
-        object-fit: contain;
-    }
+        .lightbox-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90vw;
+            max-height: 95vh;
+        }
 
-    .lightbox-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        .lightbox img {
+            display: block;
+            max-width: 85vw;
+            max-height: 82vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            touch-action: pan-y;
+            user-select: none;
+        }
 
-    #lightbox-caption {
-        color: white;
-        margin-top: 12px;
-        font-size: 16px;
-        text-align: center;
-    }
+        #lightbox-caption {
+            color: white;
+            margin-top: 12px;
+            font-size: 16px;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 85vw;
+        }
 
-    .lightbox button {
-        font-size: 40px;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
+        .lightbox button {
+            flex: 0 0 auto;
+            font-size: 40px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 20px;
+        }
 
-    .lightbox button:hover {
-        color: #999999;
-    }
+        .lightbox button:hover {
+            color: #999999;
+        }
 
-    .lightbox button:active {
-        color: #333333;
-    }
+        .lightbox button:active {
+            color: #333333;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .lightbox {
+                padding: 10px;
+            }
+
+            .lightbox button {
+                display: none;
+            }
+
+            .lightbox-content {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            .lightbox img {
+                max-width: 94vw;
+                max-height: 82vh;
+            }
+
+            #lightbox-caption {
+                max-width: 90vw;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -699,45 +738,99 @@
         <br>
         Last updated: 2026-08-30
     </p>
-    <script type="text/javascript">
+    <script>
         const images = [...document.querySelectorAll('.gallery-img')];
         const lightbox = document.querySelector('#lightbox');
         const lightboxImg = document.querySelector('#lightbox-img');
         const lightboxCaption = document.querySelector('#lightbox-caption');
+        const prevButton = document.querySelector('#prev');
+        const nextButton = document.querySelector('#next');
 
         let current = 0;
+        let touchStartX = 0;
+        let touchStartY = 0;
 
         function showImage(index) {
             current = (index + images.length) % images.length;
+
             lightboxImg.src = images[current].dataset.full;
+            lightboxImg.alt = images[current].alt;
             lightboxCaption.textContent = images[current].alt;
+
             lightbox.classList.add('open');
         }
 
-        images.forEach((img, i) => {
-            img.addEventListener('click', () => showImage(i));
-        });
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+        }
 
-        document.querySelector('#prev').addEventListener('click', () => {
+        function previousImage() {
             showImage(current - 1);
-        });
+        }
 
-        document.querySelector('#next').addEventListener('click', () => {
+        function nextImage() {
             showImage(current + 1);
+        }
+
+        // Open lightbox when a thumbnail is clicked
+        images.forEach((img, i) => {
+            img.addEventListener('click', () => {
+                showImage(i);
+            });
         });
 
+        // Desktop arrow buttons
+        prevButton.addEventListener('click', previousImage);
+        nextButton.addEventListener('click', nextImage);
+
+        // Keyboard navigation
         document.addEventListener('keydown', e => {
             if (!lightbox.classList.contains('open')) return;
-            if (e.key === 'ArrowLeft') showImage(current - 1);
-            if (e.key === 'ArrowRight') showImage(current + 1);
-            if (e.key === 'Escape') lightbox.classList.remove('open');
-        });
 
-        lightbox.addEventListener('click', e => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('open');
+            if (e.key === 'ArrowLeft') {
+                previousImage();
+            }
+
+            if (e.key === 'ArrowRight') {
+                nextImage();
+            }
+
+            if (e.key === 'Escape') {
+                closeLightbox();
             }
         });
+
+        // Click dark background to close
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Swipe navigation on touchscreens
+        lightbox.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+
+            // Ignore mostly-vertical swipes
+            if (Math.abs(diffX) < 50 || Math.abs(diffX) < Math.abs(diffY)) {
+                return;
+            }
+
+            if (diffX < 0) {
+                nextImage();
+            } else {
+                previousImage();
+            }
+        }, { passive: true });
     </script>
 
 </body>
