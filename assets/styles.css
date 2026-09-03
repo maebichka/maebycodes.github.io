@@ -54,9 +54,22 @@ ul.blog-list {
     grid-template-columns: 1fr 1fr;
 }
 
+.art-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.art-content-item {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    align-items: center;
+
+    gap: 1rem;
+}
+
 .insta-grid {
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
     align-items: center;
     gap: 1rem;
 }
