@@ -56,9 +56,17 @@ ul.blog-list {
 
 .insta-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
     align-items: center;
     gap: 1rem;
+}
+
+.humandsad {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.images-i-like {
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .art-grid img,
@@ -76,5 +84,17 @@ img {
 @media (max-width: 1200px) {
     body {
         max-width: 90%;
+      }
+      .humandsad {
+          grid-template-columns: 1fr 1fr 1fr;
+      }
+}
+
+@media (max-width: 600px) {
+    .images-i-like {
+        grid-template-columns: 1fr;
+    }
+    .humandsad {
+        grid-template-columns: 1fr 1fr;
     }
 }
