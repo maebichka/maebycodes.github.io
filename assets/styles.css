@@ -64,8 +64,6 @@ ul.blog-list {
     display: grid;
     grid-template-rows: max-content 1fr;
     align-items: center;
-
-    gap: 1rem;
 }
 
 .insta-grid {
@@ -104,6 +102,9 @@ img {
 }
 
 @media (max-width: 600px) {
+    .art-content {
+        grid-template-columns: 1fr;
+    }
     .images-i-like {
         grid-template-columns: 1fr;
     }
